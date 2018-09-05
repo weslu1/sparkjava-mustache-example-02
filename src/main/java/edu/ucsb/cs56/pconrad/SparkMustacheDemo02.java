@@ -18,9 +18,9 @@ import static spark.Spark.get;
  *
  */
 
-public class SparkMustacheDemo01 {
+public class SparkMustacheDemo02 {
 
-	public static final String CLASSNAME="SparkMustacheDemo01";
+	public static final String CLASSNAME="SparkMustacheDemo02";
 	
 	public static final Logger log = Logger.getLogger(CLASSNAME);
 

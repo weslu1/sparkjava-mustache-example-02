@@ -9,21 +9,21 @@
     <!-- project coordinates - values which uniquely identify this project -->
 
   <groupId>edu.ucsb.cs56.pconrad</groupId>
-  <artifactId>spark-mustache-demo-01</artifactId>
+  <artifactId>spark-mustache-demo-02</artifactId>
   <version>1.0</version>
   <url>https://ucsb-cs56-pconrad.github.io/sparkjava-mustache-example</url>
   
   <!-- configure what mvn package produces -->
   
   <packaging>jar</packaging>
-  <name>sparkjava-mustache-example</name>
+  <name>sparkjava-mustache-example-02</name>
   
   <!-- what version of Java should we use and what encoding for files? -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <userDefinedMainClass>edu.ucsb.cs56.pconrad.SparkMustacheDemo01</userDefinedMainClass>
+    <userDefinedMainClass>edu.ucsb.cs56.pconrad.SparkMustacheDemo02</userDefinedMainClass>
     <userDefinedHerokuApp>TBD</userDefinedHerokuApp>
   </properties>
 
@@ -157,7 +157,7 @@
           <processTypes>
             <!-- Tell Heroku how to launch your application -->
             <!-- You might have to remove the ./ in front   -->
-            <web>java $JAVA_OPTS -jar target/sparkjava-demo-01-1.0-jar-with-dependencies.jar</web>
+            <web>java $JAVA_OPTS -jar target/${project.name}-${project.version}-jar-with-dependencies.jar</web>
 
           </processTypes>
 	</configuration>
