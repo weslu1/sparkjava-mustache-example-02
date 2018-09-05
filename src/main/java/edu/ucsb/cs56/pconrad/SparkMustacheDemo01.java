@@ -2,24 +2,38 @@ package edu.ucsb.cs56.pconrad;
 
 import static spark.Spark.port;
 
+import org.apache.log4j.Logger;
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+import spark.ModelAndView;
+import spark.template.mustache.MustacheTemplateEngine;
+
+import static spark.Spark.get;
 
 /**
- * Hello world!
+ * Simple example of using Mustache Templates
  *
  */
 
-public class SparkDemo01 {
-    public static void main(String[] args) {
+public class SparkMustacheDemo01 {
+
+	public static final String CLASSNAME="SparkMustacheDemo01";
+	
+	public static final Logger log = Logger.getLogger(CLASSNAME);
+
+	public static void main(String[] args) {
 
         port(getHerokuAssignedPort());
 		
-		System.out.println("");
-		System.out.println("(Don't worry about the warnings below about SLF4J... we'll deal with those later)");
-		System.out.println("");						  
-		System.out.println("In browser, visit: http://localhost:" + getHerokuAssignedPort() + "/hello");
-		System.out.println("");
-		spark.Spark.get("/", (req, res) -> "<b>Hello World!</b>\n");
-
+		Map map = new HashMap();
+        map.put("name", "Sam");
+		
+        // hello.mustache file is in resources/templates directory
+        get("/", (rq, rs) -> new ModelAndView(map, "hello.mustache"), new MustacheTemplateEngine());
+		
 	}
 	
     static int getHerokuAssignedPort() {
