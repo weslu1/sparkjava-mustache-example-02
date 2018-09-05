@@ -12,6 +12,7 @@ import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 
 import static spark.Spark.get;
+import static spark.Spark.post;
 
 /**
  * Simple example of using Mustache Templates
@@ -33,6 +34,10 @@ public class SparkMustacheDemo02 {
 		
         // hello.mustache file is in resources/templates directory
         get("/", (rq, rs) -> new ModelAndView(map, "hello.mustache"), new MustacheTemplateEngine());
+
+		get("/form/student", (rq, rs) -> new ModelAndView(map, "studentForm.mustache"), new MustacheTemplateEngine());
+
+		post("/add/student", (rq, rs) -> new ModelAndView(map, "addedStudent.mustache"), new MustacheTemplateEngine());
 		
 	}
 	
